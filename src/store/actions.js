@@ -27,3 +27,9 @@ export const setShowAddSalary = data => ({
     type: SHOW_ADD_SALARY,
     payload: data
 });
+
+export const SET_BUILDINGS = "SET_BUILDINGS";
+export const setBuildings = data => ({
+    type: SET_BUILDINGS,
+    payload: data
+});

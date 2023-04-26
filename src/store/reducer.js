@@ -50,6 +50,7 @@ const defaultMainState = {
     showShedule: false,
     showSalaryMore: false,
     showEmployeeAddPay: false,
+    buildings: [],
 };
 
 export default combineReducers({
@@ -76,6 +77,9 @@ export default combineReducers({
 
             case ACTIONS.SHOW_ADD_SALARY:
                 return { ...state, showEmployeeAddPay: action.payload }
+
+            case ACTIONS.SET_BUILDINGS:
+                return { ...state, buildings: action.payload }
 
             default:
                 return state;

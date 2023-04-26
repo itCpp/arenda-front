@@ -7,6 +7,7 @@ import Tenant from "./Tenant";
 import Parking from "./Parking";
 import Cashbox from "./Cashbox";
 import Salary from "./Salary";
+import Buildings from "./Building";
 
 export {
     Employees,
@@ -18,4 +19,5 @@ export {
     Parking,
     Cashbox,
     Salary,
+    Buildings,
 }

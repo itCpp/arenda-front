@@ -73,6 +73,13 @@ const CashboxHeaderButtons = () => {
                             onChange={(e, { value }) => setFormdata(p => ({ ...p, name: value }))}
                         />
                         <Form.Input
+                            placeholder="Сумма"
+                            label="Сумма"
+                            className="mb-2"
+                            value={formdata?.sum || ""}
+                            onChange={(e, { value }) => setFormdata(p => ({ ...p, sum: value }))}
+                        />
+                        <Form.Input
                             type="date"
                             placeholder="Дата"
                             label="Дата"

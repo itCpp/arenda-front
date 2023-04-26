@@ -24,7 +24,7 @@ const Income = () => {
 
 }
 
-const IncomeBuilding = props => {
+export const IncomeBuilding = props => {
 
     const { id } = props;
     const [loading, setLoading] = React.useState(false);

@@ -19,6 +19,8 @@ const SalaryTable = props => {
             debt: 0,
             balance: 0,
             premium: 0,
+            tax: 0,
+            fine: 0,
         }
 
         rows.forEach(r => {
@@ -27,6 +29,8 @@ const SalaryTable = props => {
             counter.debt += Number(r.duty || 0);
             counter.balance += Number(r.balance || 0);
             counter.premium += Number(r?.premium || 0);
+            counter.tax += Number(r?.tax || 0);
+            counter.fine += Number(r?.fine || 0);
         });
 
         setStat(counter);
@@ -45,6 +49,8 @@ const SalaryTable = props => {
                 <Table.HeaderCell>Долг</Table.HeaderCell>
                 <Table.HeaderCell>Аванс</Table.HeaderCell>
                 <Table.HeaderCell>Премия</Table.HeaderCell>
+                <Table.HeaderCell>НДФЛ</Table.HeaderCell>
+                <Table.HeaderCell>Штраф</Table.HeaderCell>
                 <Table.HeaderCell>Остаток</Table.HeaderCell>
                 <Table.HeaderCell />
             </Table.Row>
@@ -75,6 +81,12 @@ const SalaryTable = props => {
                 />
                 <Table.Cell
                     content={stat.premium.toFixed((stat.premium - stat.premium.toFixed(0) !== 0) ? 2 : 0)}
+                />
+                <Table.Cell
+                    content={stat.tax.toFixed((stat.tax - stat.tax.toFixed(0) !== 0) ? 2 : 0)}
+                />
+                <Table.Cell
+                    content={stat.fine.toFixed((stat.fine - stat.fine.toFixed(0) !== 0) ? 2 : 0)}
                 />
                 <Table.Cell
                     content={stat.balance.toFixed((stat.balance - stat.balance.toFixed(0) !== 0) ? 2 : 0)}

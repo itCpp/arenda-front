@@ -14,6 +14,7 @@ const Crm = props => {
         <Components.Header />
 
         <Routes>
+            <Route path="/building/:id" element={<Components.Buildings />} />
             <Route path="/income/:id" element={<Components.Income />} />
             <Route path="/expenses" element={<Components.Expenses />} />
             <Route path="/employees" element={<Components.Employees />} />

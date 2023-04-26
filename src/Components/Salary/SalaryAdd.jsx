@@ -106,6 +106,8 @@ const SalaryAdd = props => {
                         { key: 0, text: "Аванс", value: 1 },
                         { key: 1, text: "Зарплата", value: 2 },
                         { key: 2, text: "Премия", value: 3 },
+                        { key: 3, text: "НДФЛ", value: 4 },
+                        { key: 4, text: "Штраф", value: 5 },
                     ]}
                     name="purpose_pay"
                     value={formdata?.purpose_pay || null}

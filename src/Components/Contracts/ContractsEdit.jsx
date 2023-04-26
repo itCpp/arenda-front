@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { Dimmer, Form, Icon, Loader, Message, Modal } from "semantic-ui-react";
 import { setShowContractEdit } from "../../store/contract/actions";
 import { axios } from "../../system";
+import SelectClient from "../From/SelectClient";
+import SelectSource from "../From/SelectSource";
 
 const ContractsEdit = props => {
 
     const { callback } = props;
-    const { showEdit } = useSelector(s => s.contract);
+    const { showEdit, types } = useSelector(s => s.contract);
     const d = useDispatch();
     const [loading, setLoading] = React.useState(true);
     const [formdata, setFormdata] = React.useState({});
@@ -86,19 +88,26 @@ const ContractsEdit = props => {
 
                     <Form.Group widths="equal">
 
-                        <Form.Select
+                        <SelectClient
                             label="Клиент"
                             placeholder="Выберите клиента"
                             name="client_id"
-                            options={[]}
+                            value={formdata?.client_id || ""}
+                            onChange={handleChange}
+                            error={Boolean(errors?.client_id)}
                             required
                         />
 
                         <Form.Select
                             label="Тип договора"
                             placeholder="Выберите тип"
+                            options={types.map((r, i) => ({ ...r, key: i }))}
                             name="type"
-                            options={[]}
+                            value={formdata?.type || ""}
+                            onChange={(e, { name, value}) => {
+                                setFormdata(p => ({ ...p, [name]: value, sources: null}))
+                            }}
+                            error={Boolean(errors?.type)}
                             required
                         />
 
@@ -167,6 +176,15 @@ const ContractsEdit = props => {
                         />
 
                     </Form.Group>
+
+                    <SelectSource
+                        name="sources"
+                        value={formdata?.sources || []}
+                        onChange={handleChange}
+                        error={Boolean(errors?.sources)}
+                        contract={formdata?.type || null}
+                        disabled={formdata?.type !== "rent"}
+                    />
 
                     <Form.TextArea
                         label="Комментарий"

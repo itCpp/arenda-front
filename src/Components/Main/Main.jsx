@@ -8,6 +8,7 @@ import { setShowClientEdit } from "../../store/client/actions";
 import { setShowContractEdit } from "../../store/contract/actions";
 import ClientEdit from "../Clients/ClientEdit";
 import ContractsEdit from "../Contracts";
+import { setBuildings } from "../../store/actions";
 
 const Main = () => {
 
@@ -23,6 +24,7 @@ const Main = () => {
         axios.get('main')
             .then(({ data }) => {
                 setChart(data.chart);
+                d(setBuildings(data.buildings || []));
             })
             .catch(e => {
                 setError(axios.getError(e));
@@ -48,7 +50,7 @@ const Main = () => {
 
         {!loading && !error && <>
 
-            <div className="text-center mt-4 d-none">
+            <div className="text-center mt-4">
 
                 <ClientEdit />
                 <ContractsEdit />
