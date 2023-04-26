@@ -130,6 +130,8 @@ const SalaryTableRow = props => {
         <Table.Cell>{row.duty || <span className="opacity-30">0</span>}</Table.Cell>
         <Table.Cell>{row.prepayment || <span className="opacity-30">0</span>}</Table.Cell>
         <Table.Cell>{row.premium || <span className="opacity-30">0</span>}</Table.Cell>
+        <Table.Cell>{row.tax || <span className="opacity-30">0</span>}</Table.Cell>
+        <Table.Cell>{row.fine || <span className="opacity-30">0</span>}</Table.Cell>
         <Table.Cell>
             <strong className={`${load === row.id ? "opacity-40" : ((row.balance || 0) > 0 ? "text-success" : ((row.balance || 0) < 0 ? "text-danger" : ""))}`}>{row.balance || 0}</strong>
         </Table.Cell>
